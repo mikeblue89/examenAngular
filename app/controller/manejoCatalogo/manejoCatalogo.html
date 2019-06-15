@@ -1,0 +1,103 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <center><h1>Manejo de Catalogo</h1></center>
+        </div>
+    </div>
+    </br>
+    <div class="row">
+        <div class="col">
+            <form>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="marca">Marca</label>
+                        <input type="text" class="form-control" id="marca" ng-model = "vm.item.marca">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="modelo">modelo</label>
+                        <input type="text" class="form-control" id="modelo" ng-model = "vm.item.modelo">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="precio">Precio</label>
+                        <input type="number" class="form-control" id="precio" ng-model = "vm.item.precio">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="ram">RAM</label>
+                        <input type="text" class="form-control" id="ram" ng-model = "vm.item.ram">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="almacenamiento">Almacenamiento interno</label>
+                        <input type="text" class="form-control" id="almacenamiento" ng-model = vm.item.almacenamiento>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="bateria">Bateria</label>
+                        <input type="text" class="form-control" id="bateria" ng-model = "vm.item.bateria">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tamanoPantalla">Tamaño de pantalla</label>
+                        <input type="text" class="form-control" id="tamanoPantalla" ng-model = "vm.item.tamanoPantalla">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="os">Sistema Operativo</label>
+                        <input type="text" class="form-control" id="os" ng-model = "vm.item.os">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="ifurl">Imagen frontal (URL)</label>
+                        <input type="text" class="form-control" id="ifurl" ng-model = "vm.item.ifurl">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="ilurl">Imagen lateral (URL)</label>
+                        <input type="text" class="form-control" id="ilurl" ng-model = "vm.item.ilurl">
+                    </div>
+                </div>
+            </br>
+
+                <div class="row">
+                    <div class="col">
+                        <span class="btn btn-success glyphicon glyphicon-plus" ng-click = "vm.addItem()"> Add</span>
+                        <span class="btn btn-danger glyphicon glyphicon-minus" ng-click = "vm.clean()"> Clear</span>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <center><h1>Catalogo</h1></center>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table table-condensed table-responsive">
+                <thead>
+                    <tr>
+                        <th scope="col" ng-repeat = "header in vm.cabezeraCatalogo">{{header}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repead = "item in vm.Catalogo">
+                        <td>{{item.marca}}</td>
+                        <td>{{item.modelo}}</td>
+                        <td>{{item.precio}}</td>
+                        <td>{{item.ram}}</td>
+                        <td>{{item.almacenamiento}}</td>
+                        <td>{{item.bateria}}</td>
+                        <td>{{item.tamanoPantalla}}</td>
+                        <td>{{item.os}}</td> 
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>
