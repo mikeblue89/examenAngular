@@ -27,10 +27,30 @@
                     controller: 'catalogoController',
                     controllerAs: 'vm'
                 }
+            },
+            {
+                name: 'app.market',
+                options: {
+                    title: 'Market',
+                    url: '/market',
+                    templateUrl: 'app/controller/market/market.html',
+                    controller: 'marketController',
+                    controllerAs: 'vm'
+                }
+            },
+            {
+                name: 'app.cart',
+                options: {
+                    title: 'Cart',
+                    url: '/cart',
+                    templateUrl: 'app/controller/cart/cart.html',
+                    controller: 'cart',
+                    controllerAs: 'vm'
+                }
             }
         ];
 
-        states.forEach(state => $stateProvider.state(state.name, state.options));
+        states.forEach(state => {$stateProvider.state(state.name, state.options)});
     };
 
     mainModule.config(mainModuleConfig);

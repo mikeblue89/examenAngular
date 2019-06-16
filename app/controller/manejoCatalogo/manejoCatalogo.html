@@ -85,7 +85,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repead = "item in vm.Catalogo">
+                    <tr ng-repeat = "item in vm.catalogo">
                         <td>{{item.marca}}</td>
                         <td>{{item.modelo}}</td>
                         <td>{{item.precio}}</td>
@@ -94,6 +94,10 @@
                         <td>{{item.bateria}}</td>
                         <td>{{item.tamanoPantalla}}</td>
                         <td>{{item.os}}</td> 
+                        <td>
+                            <span class=" btn btn-success glyphicon glyphicon-pencil" ng-click = "vm.edit(item)"></span>
+                            <span class="btn btn-danger glyphicon glyphicon-trash" ng-click = "vm.delete($index)"></span>
+                        </td>
                     </tr>
                 </tbody>
             </table>

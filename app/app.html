@@ -11,9 +11,17 @@
         </div>
 
         <div class="collapse navbar-collapse" uib-collapse="vm.isNavCollapsed">
-            <ul class="nav navbar-nav menuColor" ng-repeat="item in vm.navbarItems">
-                <li ng-if = "!item.abstract" class="menuColor"><a ui-sref= "{{item.name}}" ui-sref-active="active">{{item.tittle}}</a></li>
-            </ul>
+            <ul class="nav navbar-nav {{vm.posicion}}" ng-repeat="item in vm.navbarItems">
+					<li ng-if = "!item.abstract" class="menuColor" ng-class="vm.posicion()"><a ui-sref= "{{item.name}}" ui-sref-active="active">{{item.title}}</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<button class="btn btn-danger">
+					<span class=" glyphicon glyphicon-shopping-cart"> 
+						Cart
+						<span class="badge">4</span>
+					</span>
+				</button>
+			</ul>
         </div>
     </nav>
     <ui-view></ui-view>

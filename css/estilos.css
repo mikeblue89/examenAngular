@@ -1,0 +1,17 @@
+.black{
+    text-emphasis-color: black;
+}
+
+.tamano{
+    width: 200px;
+    height: 280px;
+}
+
+.tamano1{
+    width: 400px;
+    height: 560px;
+}
+
+.btn-red{
+    background-color: rgb(240, 95, 95);
+}
