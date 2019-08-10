@@ -4,16 +4,17 @@ moduloCatalogo.controller('catalogoController', function(){
     let vm = this;
 
     let defaults = ()=>{
-        loadItem();
+        vm.loadItem();
         loadCatalogo();
     }
 
-    let loadItem = ()=>{
+    vm.loadItem = ()=>{
         vm.item = {};
     }
     let loadCatalogo = ()=>{
 
         vm.catalogo = JSON.parse(localStorage.getItem("catalogo"))||[];
+        console.log(vm.catalogo);
 
         if(!vm.cabezeraCatalogo){
             vm.cabezeraCatalogo = ['Marca', 'Modelo', 'Precio', 'Memoria RAM', 'Almacenamiento', 'Bateria', 'Display', 'OS'];
@@ -22,22 +23,22 @@ moduloCatalogo.controller('catalogoController', function(){
     }
 
     vm.addItem = ()=>{
-
-        if(vm.item.modelo){
+        let exists = searchPhoneByModel();
+        if(exists){
             vm.catalogo.forEach(element => {if (element.modelo == vm.item.modelo) element = vm.item;});
         }else{
             vm.catalogo.push(vm.item);
         }
-        saveCatalogo(vm.catalogo);
-        vm.clean();
+        saveCatalogo();
+        vm.loadItem();
     }
 
-    let saveCatalogo = (item)=>{
-        localStorage.setItem('catalogo', JSON.stringify(item));
+    let searchPhoneByModel = () => {
+        vm.catalogo.filter(element => element.modelo == vm.item.modelo ).length > 0;
     }
 
-    vm.clean = ()=>{
-        vm.item = loadItem();
+    let saveCatalogo = ()=>{
+        localStorage.setItem('catalogo', JSON.stringify(vm.catalogo));
     }
 
     vm.edit = (item)=>{
@@ -47,7 +48,7 @@ moduloCatalogo.controller('catalogoController', function(){
     vm.delete = (index)=>{
         vm.catalogo.splice(index,1);
         saveCatalogo();
-        vm.clean();
+        vm.loadItem();
     }
 
     defaults();
